@@ -9,7 +9,7 @@ module.exports.verifyToken=(req,res,next)=>{
     let decode=jwt.verify(token,secretKey);
     console.log(decode);
     if(decode){
-        next();
+       return next();
     }
     res.send("token not valid");
 }
