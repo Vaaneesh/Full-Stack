@@ -5,17 +5,15 @@ const mongoose=require("mongoose");
 const User=require("./model/user");
 const bcrypt = require('bcrypt');
 const saltRounds = 10; 
-const {createWebToken}=require("./auth/auth");
-// const session=require('express-session');
-// app.use(express.static('public'));
-// const hbs=require('hbs');
-// const fs=require('fs');
+const {createWebToken,verifyToken}=require("./auth/auth");
+const cookieParser=require("cookie-parser");
 
+app.use(cookieParser()); //to parse cookies so that we can use as objects to get key values
 app.use(express.static(path.join(__dirname,"static")))
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.set('view engine', 'hbs');
-app.get("/",(req,res)=>{
+app.get("/",verifyToken,(req,res)=>{
     res.render("home");
 })
 app.get("/register",(req,res)=>{
@@ -40,6 +38,7 @@ app.post("/login",async(req,res)=>{
     bcrypt.compare(password,user.password).then(function(result){
         if(result){
             let token=createWebToken(user.toJSON());
+            res.cookie("token",token);
             res.json({token});
         }
     })
