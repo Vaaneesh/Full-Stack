@@ -9,3 +9,8 @@ function isLegal(age) {
         return false;
 }
 exports.isLegal = isLegal;
+function getName(name) {
+    return name;
+}
+exports.default = getName; //default export mei name change kr skte while importing but not in simple export-- No need of Destructure
+//simple export mei destructure krna pdtaa hai unlike Defualt export
