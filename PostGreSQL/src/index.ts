@@ -1,7 +1,7 @@
 import { Client } from "pg";
 
 const client=new Client({
-    connectionString:"postgresql://prabhakarvaaneesh:4lRFHaIWA0QG@ep-red-mode-a1f9ukjs.ap-southeast-1.aws.neon.tech/Vaaneesh?sslmode=require"
+    connectionString:"postgresql://prabhakarvaaneesh:*********-red-mode-a1f9ukjs.ap-southeast-1.aws.neon.tech/Vaaneesh?sslmode=require"
 })
 
 async function connect() {
