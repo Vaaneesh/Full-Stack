@@ -18,9 +18,10 @@ function connect() {
         yield client.connect();
     });
 }
+connect();
 function createPostTable() {
     return __awaiter(this, void 0, void 0, function* () {
-        connect(); //bahar bhi koi dikkat ni
+        // connect();  //bahar bhi koi dikkat ni
         const query = `CREATE TABLE posts(
         id SERIAL PRIMARY KEY,
         postname VARCHAR(50) UNIQUE NOT NULL,
@@ -32,4 +33,15 @@ function createPostTable() {
         console.log(result);
     });
 }
-createPostTable();
+// createPostTable();
+//insert
+function insertData(postname, email, password) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const query = `INSERT INTO posts(postname,email,password)
+    VALUES ($1, $2, $3);`;
+        const value = [postname, email, password];
+        const result = yield client.query(query, value);
+        console.log(result);
+    });
+}
+insertData("Vasu", "vasu@gamil.com", "vasu123");
