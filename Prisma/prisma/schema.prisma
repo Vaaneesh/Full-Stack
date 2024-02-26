@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://prabhakarvaaneesh:4lRFHaIWA0QG@ep-red-mode-a1f9ukjs.ap-southeast-1.aws.neon.tech/primary?sslmode=require"
+}
+
+model User{
+  id Int  @id @default(autoincrement())
+  email String
+  password String
+  firstname String? //jab bhi schema/prisma file mei changes honge then database ko migrate krna hai
+}
+//when ever u change prisma.schema file you must need to perform following commands->
+//npx prisma migrate dev --name ""
+//npx prisma generate
