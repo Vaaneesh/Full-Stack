@@ -18,7 +18,16 @@ model User{
   email String
   password String
   firstname String? //jab bhi schema/prisma file mei changes honge then database ko migrate krna hai
+  todo Todo[]
 }
 //when ever u change prisma.schema file you must need to perform following commands->
 //npx prisma migrate dev --name ""
 //npx prisma generate
+
+model Todo{
+  id Int @id @default(autoincrement())
+  title String
+  desc String
+  userid Int
+  user User @relation(fields: [userid],references: [id]) //reference krra User table ko
+}

@@ -18,9 +18,9 @@ async function insertData(email:string,password:string,firstname:string){
     console.log(user);
 }
 let data=[
-    {email:'batra@gmail.com',password:'1234',firstname:'Vansh Batra'},
-    {email:'ashu@gmail.com',password:'3444',firstname:'Ashu'},
-    {email:'rawal@gmail.com',password:'1235',firstname:'Rawal'}
+    {email:'abc@gmail.com',password:'1111',firstname:'Abc'},
+    {email:'xyz@gmail.com',password:'3333',firstname:'Xyz'},
+    {email:'efg@gmail.com',password:'2222',firstname:'Efg'}
 ]
 async function insertManyData(data:UserData[]){
     try{
@@ -90,10 +90,14 @@ async function update(id:number){
         },
     });
 }
+function createTodo(title:string,desc:string,userId:number){
+    
+}
 // insertManyData(data);
 // find(2);
 // findMany();
 // deleteOne(6);
 // deleteMany();
-update(13);
+// update(13);
+insertManyData(data);
 // insertData("vasu@gmail.com","vasu123","Vasu");

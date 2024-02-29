@@ -24,9 +24,9 @@ function insertData(email, password, firstname) {
     });
 }
 let data = [
-    { email: 'batra@gmail.com', password: '1234', firstname: 'Vansh Batra' },
-    { email: 'ashu@gmail.com', password: '3444', firstname: 'Ashu' },
-    { email: 'rawal@gmail.com', password: '1235', firstname: 'Rawal' }
+    { email: 'abc@gmail.com', password: '1111', firstname: 'Abc' },
+    { email: 'xyz@gmail.com', password: '3333', firstname: 'Xyz' },
+    { email: 'efg@gmail.com', password: '2222', firstname: 'Efg' }
 ];
 function insertManyData(data) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -116,5 +116,6 @@ function update(id) {
 // findMany();
 // deleteOne(6);
 // deleteMany();
-update(13);
+// update(13);
+insertManyData(data);
 // insertData("vasu@gmail.com","vasu123","Vasu");
