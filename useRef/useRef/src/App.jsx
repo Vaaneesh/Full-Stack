@@ -6,24 +6,32 @@ import { useRef } from 'react';
 
 //We used useRef inorder to avoid re-rendering //also to store value and 
 function App() {
-  const [todo,setTodo]=useState(null)
+  const [name,setName]=useState("")
+  const [age,setAge]=useState("")
   // const [count, setCount] = useState(0)
   // const texRef=useRef(null);
   const inputRef=useRef(" ");
   function clickHandler(){
     // inputRef.current.focus();
-    setTodo(inputRef.current);
+    setName(inputRef.name);
+    setAge(inputRef.age);
+  }
+  function ageHandler(e){
+    inputRef.age=e.target.value;
+    console.log(inputRef.age);
   }
   function onchangeHandler(e){
     console.log(e.target.value);
-    inputRef.current=e.target.value;
-    console.log(inputRef.current);
+    inputRef.name=e.target.value;
+    console.log(inputRef.name);
   }
   return (
     <>
       <input onChange={onchangeHandler}  type="text" />
+      <input onChange={ageHandler}  type="text" />
       <button onClick={clickHandler}>Submit</button>
-      <div>{todo}</div>
+      <div>{name}</div>
+      <div>{age}</div>
     </>
   )
 }
