@@ -2,39 +2,41 @@ import { useContext, useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-import { countContext } from './context'
-
+// import { countContext } from './context'
+import {countatom} from "./store/countatom"
+import { RecoilRoot, useRecoilValue, useRecoilState } from 'recoil'
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <>
-    <countContext.Provider value={count}>
-     <Child setCount={setCount} />
-     </countContext.Provider>
+    <RecoilRoot>
+      <Child />
+    </RecoilRoot>
     </>
   )
 }
-function Child({setCount}){
-  console.log("rendering")
+function Child(){
+  console.log("rendering");
 return(
   <>
   <CountValue />
-  <Button setCount={setCount} />
+  <Button />
   </>
 )
 }
 
 function CountValue(){
-  let count=useContext(countContext)
+  let count = useRecoilValue(countatom);
   return(
     <>
     <h1>{count}</h1>
     </>
   )
 }
-function Button({setCount}){
-  let count= useContext(countContext);
+function Button(){
+  console.log("Button is rendering");
+  let [count,setCount]=useRecoilState(countatom);
   return(
     <>
       <button onClick={()=>setCount(count+1)}>Inc</button>
