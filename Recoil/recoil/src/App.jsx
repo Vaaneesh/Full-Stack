@@ -1,10 +1,10 @@
-import { useContext, useState } from 'react'
+// import { useContext, useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
 // import { countContext } from './context'
 import {countatom} from "./store/countatom"
-import { RecoilRoot, useRecoilValue, useRecoilState } from 'recoil'
+import { RecoilRoot, useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil'
 function App() {
   // const [count, setCount] = useState(0)
 
@@ -36,11 +36,12 @@ function CountValue(){
 }
 function Button(){
   console.log("Button is rendering");
-  let [count,setCount]=useRecoilState(countatom);
+  // let [count,setCount]=useRecoilState(countatom);
+  let setCount=useSetRecoilState(countatom);
   return(
     <>
-      <button onClick={()=>setCount(count+1)}>Inc</button>
-      <button  onClick={()=>setCount(count-1)}>Dec</button>
+      <button onClick={()=>setCount((prevcount)=>prevcount+1)}>Inc</button>
+      <button  onClick={()=>setCount((prevcount)=>prevcount-1)}>Dec</button>
     </>
   )
 }
