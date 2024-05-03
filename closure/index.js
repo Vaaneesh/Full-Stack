@@ -16,8 +16,8 @@
 function memo(){
     let obj={};
     function multiplyby5(inp){
-        console.log(obj)
-        if(obj.inp){
+        console.log(obj);
+        if(obj[inp]){
             console.log("memo");
             return console.log(obj.inp);
         }
