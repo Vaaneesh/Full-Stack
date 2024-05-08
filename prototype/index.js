@@ -29,6 +29,18 @@ Person.prototype.getFullName=function(){
 }
 let p1=new Person("Vaaneesh","Prabhakar","21");
 let p2=new Person("Ashutosh","Prabhakar","27");
+// console.log(p1);
+// console.log(p2);
+// console.log(p2.getFullName());
+
+function Employee(){
+
+}
+Employee.prototype.getId=function(){
+    console.log(this.firstName+Math.random());
+}
+let e1=new Employee();
+console.log(e1);
+Person.prototype.__proto_=Object.assign(Employee.prototype);
+console.log(Person.prototype.__proto_);
 console.log(p1);
-console.log(p2);
-console.log(p2.getFullName());
